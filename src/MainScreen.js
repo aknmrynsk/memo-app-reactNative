@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, FlatList } from "react-native";
-import { List } from "react-native-paper";
+import { List, FAB } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 import format from "date-fns/format";
 
 const memos = [
@@ -23,6 +24,12 @@ const memos = [
 ]
 
 export const MainScreen = () => {
+    const navigation = useNavigation();
+
+    const onPressAdd = () => {
+        navigation.navigate('Compose')
+    }
+
     return (
         <View style={styles.container}>
             <FlatList
@@ -38,6 +45,15 @@ export const MainScreen = () => {
                         descriptionStyle={{ textAlign: 'right' }} />
 
                 )}
+            />
+            <FAB
+                style={{
+                    position: 'absolute',
+                    right: 16,
+                    bottom: 16,
+                }}
+                icon="plus"
+                onPress={onPressAdd}
             />
         </View>
     );
