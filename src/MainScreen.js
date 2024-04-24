@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 import { List } from "react-native-paper";
+import format from "date-fns/format";
 
 const memos = [
     {
@@ -31,7 +32,8 @@ export const MainScreen = () => {
                 renderItem={({ item }) => (
                     <List.Item
                         title={item.text}
-                        description={item.createdAt} />
+                        description={`作成日時:${format(item.createdAt,
+                            'yyyy.mm.dd HH:mm')}`} />
                 )}
             />
         </View>
