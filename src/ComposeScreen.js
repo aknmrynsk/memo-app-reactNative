@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import { TextInput, Button } from 'react-native-paper';
+import { useNavigation } from "@react-navigation/native";
+import { save } from "./store";
 
 export const ComposeScreen = () => {
     const [text, setText] = useState('');
-    const onPressSave = () => {
-        // ToDO 保存処理
+    const navigation = useNavigation();
+    const onPressSave = async () => {
+        await save(text, Date.now());
+        navigation.goBack();
     }
 
     return (
