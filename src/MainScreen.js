@@ -5,7 +5,7 @@ import format from "date-fns/format";
 
 const memos = [
     {
-        text: 'メモ1',
+        text: 'メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1メモ1',
         createdAt: 1713948778000
     },
     {
@@ -32,6 +32,7 @@ export const MainScreen = () => {
                 renderItem={({ item }) => (
                     <List.Item
                         title={item.text}
+                        titleNumberOfLines={5}
                         description={`作成日時:${format(item.createdAt,
                             'yyyy.mm.dd HH:mm')}`} />
                 )}
